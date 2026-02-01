@@ -1,7 +1,11 @@
 {
   "name": "react-tablas-demo",
   "version": "0.1.0",
+<<<<<<< HEAD
  "homepage": "https://jsalias.github.io/React-Tablas-Demo",
+=======
+"homepage": "https://jsalias.github.io/React-Tablas-Demo",
+>>>>>>> defcd8e (correcciones de conexion)
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
