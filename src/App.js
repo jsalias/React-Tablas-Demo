@@ -343,6 +343,7 @@ function Header() {
 // 🔹 Footer con links a docs + autor + repo
 function Footer() {
   const githubRepo = "https://github.com/tu-usuario/tablas-react-demo";
+  
 
   return (
     <footer className="app-footer">
