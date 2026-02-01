@@ -1,0 +1,461 @@
+/* =========================
+   RESET & BASE
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle at top left, #111827, #020617 55%);
+  color: #111827;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* =========================
+   LAYOUT GENERAL
+   ========================= */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(10px);
+  color: #f9fafb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.65rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Marca */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #f9fafb;
+}
+
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #db894e, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.brand-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  transition: background 0.18s, color 0.18s, transform 0.1s;
+}
+
+.nav-link:hover {
+  background: rgba(31, 41, 55, 0.9);
+  color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+.nav-link-active {
+  background: #f97316;
+  color: #111827;
+}
+
+.nav-link-ghost {
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* =========================
+   MAIN
+   ========================= */
+.app-main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.7rem 1.5rem 2.5rem;
+  color: #0f172a;
+  position: relative;
+}
+
+/* Fondo degradado detrás del main para separarlo del header */
+.app-main::before {
+  content: "";
+  position: absolute;
+  inset: -40px 0 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.2),
+    rgba(249, 250, 251, 0.96)
+  );
+  z-index: -1;
+}
+
+/* Hero */
+.hero h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: white;
+  margin-left: 80px;
+}
+
+.hero p {
+  margin: 0;
+  color: white;
+  margin-left: 80px;
+  max-width: 920px;
+  font-size: 0.95rem;
+}
+
+/* Secciones */
+.section {
+  margin-top: 0;
+  width: 90%;
+  margin-left: 80px;
+}
+
+.section h2 {
+  margin: 0rem 0 0.9rem;
+  font-size: 1.1rem;
+  color: white;
+}
+
+/* =========================
+   GRID DE TARJETAS
+   ========================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Tarjeta */
+.lib-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Contenedor interno de la card */
+.lib-card-inner {
+  position: relative;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  min-height: 160px;
+background-color: white;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  transform: translateY(0);
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out;
+  cursor: pointer;
+}
+
+/* Imagen de fondo dentro de la card */
+.lib-card-background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;      /* 👈 ahora la imagen ocupa toda la card */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* opcional: si no querés bordes blancos, sacá el background-color */
+  /* background-color: white;  */
+  filter: brightness(0.9);
+  transform: scale(1);
+  transition: filter 0.28s ease-out;
+}
+
+
+/* Badge de tipo (Data Grid / Virtualización) */
+.lib-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #f9fafb;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(249, 250, 251, 0.5);
+  letter-spacing: 0.03em;
+}
+
+/* Overlay con título + descripción dentro de la card */
+.lib-card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.94),
+    rgba(15, 23, 42, 0.15)
+  );
+  color: white;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+}
+
+.lib-card-overlay h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.lib-card-overlay p {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Hover de tarjeta */
+.lib-card-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.8);
+  border-color: rgba(249, 115, 22, 0.9);
+}
+
+.lib-card-inner:hover .lib-card-background {
+  filter: brightness(1.02);
+}
+
+.lib-card-inner:hover .lib-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   PANEL GRANDE (SPAN FUERA DE LA CARD)
+   ========================= */
+.lib-global-hover-panel {
+  display: block;
+  width: 70vw;              /* ~70% del ancho de la pantalla */
+  max-width: 1100px;
+  margin: 3rem auto 0 auto;
+  background: #111827;
+  color: #f9fafb;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.7);
+  line-height: 1.6;
+}
+
+.lib-global-hover-panel h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.app-footer {
+  border-top: 1px solid #e5e7eb;
+  background: #0f172a;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem 1.4rem;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.footer-libs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-lib a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-lib a:hover {
+  text-decoration: underline;
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-meta a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.footer-meta a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav {
+    margin-left: 0;
+  }
+
+  .app-main {
+    padding-inline: 1rem;
+  }
+
+  .hero h1,
+  .hero p,
+  .section {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .lib-global-hover-panel {
+    width: 90vw;
+  }
+}
+
+.lib-info-panel {
+  display: block;
+  width: 70%;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  line-height: 1.6;
+
+}
+
+.lib-info-panel h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); /* cards 2/3, info 1/3 */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-column {
+  /* que el panel quede pegado arriba y no demasiado alto */
+  align-self: flex-start;
+}
+
+.lib-info-box {
+  background: #111827;
+  color: #f9fafb;
+  padding: 1.3rem;
+  border-radius: 1rem;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: -60px;
+}
+
+.lib-info-box--empty {
+  opacity: 0.8;
+}
+
+.lib-info-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #38bdf8;
+}
+
+h2{color: white;}
+p{color: white;}
+
+.footer-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.footer-github-icon {
+  width: 20px;
+  height: 20px;
+}
