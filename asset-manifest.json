@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/jsalias/React-Tablas-Demo.git/static/css/main.48ac546a.css",
-    "main.js": "/jsalias/React-Tablas-Demo.git/static/js/main.2cd3d145.js",
-    "static/media/mui.png": "/jsalias/React-Tablas-Demo.git/static/media/mui.0b3362b282870092bc09.png",
-    "static/media/tanstack.png": "/jsalias/React-Tablas-Demo.git/static/media/tanstack.bd6293b3ac7f3420654d.png",
-    "static/media/window.png": "/jsalias/React-Tablas-Demo.git/static/media/window.eea465ef349d3dc35842.png",
-    "static/media/virtual.png": "/jsalias/React-Tablas-Demo.git/static/media/virtual.f20161e18c31b9e3fc9c.png",
-    "static/media/ag.webp": "/jsalias/React-Tablas-Demo.git/static/media/ag.311ac82ed6ca5fb65b2f.webp",
-    "index.html": "/jsalias/React-Tablas-Demo.git/index.html",
-    "main.48ac546a.css.map": "/jsalias/React-Tablas-Demo.git/static/css/main.48ac546a.css.map",
-    "main.2cd3d145.js.map": "/jsalias/React-Tablas-Demo.git/static/js/main.2cd3d145.js.map"
+    "main.css": "/React-Tablas-Demo/static/css/main.48ac546a.css",
+    "main.js": "/React-Tablas-Demo/static/js/main.aeec0adb.js",
+    "static/media/mui.png": "/React-Tablas-Demo/static/media/mui.0b3362b282870092bc09.png",
+    "static/media/tanstack.png": "/React-Tablas-Demo/static/media/tanstack.bd6293b3ac7f3420654d.png",
+    "static/media/window.png": "/React-Tablas-Demo/static/media/window.eea465ef349d3dc35842.png",
+    "static/media/virtual.png": "/React-Tablas-Demo/static/media/virtual.f20161e18c31b9e3fc9c.png",
+    "static/media/ag.webp": "/React-Tablas-Demo/static/media/ag.311ac82ed6ca5fb65b2f.webp",
+    "index.html": "/React-Tablas-Demo/index.html",
+    "main.48ac546a.css.map": "/React-Tablas-Demo/static/css/main.48ac546a.css.map",
+    "main.aeec0adb.js.map": "/React-Tablas-Demo/static/js/main.aeec0adb.js.map"
   },
   "entrypoints": [
     "static/css/main.48ac546a.css",
-    "static/js/main.2cd3d145.js"
+    "static/js/main.aeec0adb.js"
   ]
 }
