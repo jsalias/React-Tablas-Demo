@@ -356,19 +356,38 @@ background-color: white;
 /* =========================
    RESPONSIVE
    ========================= */
+/* =========================
+   RESPONSIVE
+   ========================= */
 @media (max-width: 768px) {
+  /* HEADER */
   .header-inner {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    padding-inline: 1rem;
+  }
+
+  .brand-text {
+    font-size: 0.9rem;
+    white-space: normal;
   }
 
   .nav {
     margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.3rem;
   }
 
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* MAIN */
   .app-main {
-    padding-inline: 1rem;
+    padding: 1rem 1rem 2.5rem;
   }
 
   .hero h1,
@@ -378,10 +397,68 @@ background-color: white;
     width: 100%;
   }
 
+  .hero h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  /* LAYOUT PRINCIPAL: cards + panel info apilados */
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .cards-column {
+    gap: 1.5rem;
+  }
+
+  .info-column {
+    width: 100%;
+  }
+
+  .lib-info-box {
+    margin-top: 0;           /* quitamos el margen negativo en mobile */
+    font-size: 0.85rem;
+  }
+
   .lib-global-hover-panel {
     width: 90vw;
+    padding: 1.5rem;
+  }
+
+  /* FOOTER */
+  .footer-inner {
+    padding: 0.9rem 1rem 1.4rem;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 }
+
+/* Extra pequeño (móviles muy chicos) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.25rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
+}
+
 
 .lib-info-panel {
   display: block;
@@ -458,4 +535,30 @@ p{color: white;}
 .footer-github-icon {
   width: 20px;
   height: 20px;
+}
+
+
+/* =========================
+   MOBILE FIX FINAL
+   ========================= */
+@media (max-width: 768px) {
+  /* Las cards en una sola columna */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* El panel de info ocupa todo el ancho */
+  .info-column {
+    width: 100%;
+  }
+
+  .lib-info-box {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  /* Evitar que el panel quede al costado */
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
 }
